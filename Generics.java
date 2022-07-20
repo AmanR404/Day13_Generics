@@ -1,34 +1,25 @@
-public class Generics{
-    public static <E> void maximum(E[] array){
-        E max1;
-        E max2;
-        E max3;
+public class Generics<E,T,F>{
+    float max = 0;
 
-        for( E element : array){
-            if(element>max1){
-                max1 = element;
-            }
+    public Generics(E max1,T max2,F max3){
+        float[] floatArray = new float[3];
+        floatArray[0] = max1;
+        floatArray[1] = max2;
+        floatArray[2] = max3;
+
+       for(float element : floatArray){
+        if(element>max){
+            max = element;
         }
-        for(E element : array){
-            if(element<max1){
-                max2 = element;
-            }
-        }
-        for(E element : array){
-            if(element<max2){
-                max3 = element;
-            }
+       }
+       printMax();
     }
-}
+
+    public void printMax(){
+        System.out.println("Maximum number :" + max);
+    }
     public static void main(String[] args) {
-        int[] intArray = {1,2,3,4,5};
-        float[] floatArray = {1.1f,2.0f,3f,4f,5.5f};
-
-        maximum(intArray);
-        maximum(floatArray);
-
-        System.out.println("Maximum number at 1st Position : " + max1);
-        System.out.println("Maximum number at 2nd Position : " + max2);
-        System.out.println("Maximum number at 3rd Position : " + max3);
+        Generics<Integer> generics = new Generics<Integer>(2,3,6);
+        Generics<Float>  generics2 = new Generics<Float>(1.4f,2.0f,3.5f);
     }
 }
